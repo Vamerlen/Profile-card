@@ -1,180 +1,327 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
-
-/* colors */
+/* Mobile */
 
 :root {
-  --prim-orange: hsl(31, 77%, 52%);
-  --prim-cyan: hsl(184, 100%, 22%);
-  --prim-dark-cyan: hsl(179, 100%, 13%);
-  --neu-white: hsla(0, 0%, 100%, 0.75);
-  --neu-gray: hsl(0, 0%, 95%);
-
-  --gray: #999;
-  --dark-gray: #555;
-  --black: #000;
+  --bgcolor: hsl(257, 40%, 49%);
+  --main-padding: 35px;
 }
 
-/* box sizing */
-
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Debugging purpose only */
+* {
+  /* border: solid 1px hsla(360, 100%, 100%, 0.5); */
+}
+html,
+body,
+.page-container {
+  border: none;
+}
+
+html {
+  min-height: 100vh;
 }
 
 body {
-  font-family: "Lexend Deca", sans-serif;
-  background-color: var(--neu-gray);
-  font-size: 15px;
-  overflow: hidden;
-  display: flex;
-  height: 100vh;
-  overflow: auto;
-  color: var(--neu-white);
+  background: url("images/bg-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--bgcolor);
+  color: #fff;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
 }
 
-/* style cards */
-
-main {
+.page-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 25px var(--main-padding);
+}
+
+.logo-image {
+  width: 50%;
+  max-width: 220px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
+  flex-grow: 1;
+  padding: 35px var(--main-padding);
 }
 
-article {
-  max-width: 278px;
-  height: 450px;
-  padding: 42px;
-  position: relative;
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 600px; */
 }
 
-article.sedan {
-  background-color: var(--prim-orange);
-  border-radius: 7px 0 0 7px;
+.illustration {
+  width: 100%;
 }
 
-article.suv {
-  background-color: var(--prim-cyan);
-}
-
-article.luxury {
-  background-color: var(--prim-dark-cyan);
-  border-radius: 0 7px 7px 0;
-}
-
-img {
-  margin-bottom: 36px;
-}
-
-h1 {
-  font-family: "Big Shoulders Display", sans-serif;
-  font-weight: 700;
-  font-size: 36px;
-  color: var(--neu-gray);
-  margin-bottom: 1.5rem;
-}
-
-article p {
-  color: var(--neu-white);
-  font-size: 13.8px;
-  line-height: 1.5rem;
-}
-
-button {
-  position: absolute;
-  cursor: pointer;
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  display: inline-block;
-  padding: 14px;
-  width: 146px;
-  border-radius: 25px;
-  outline: none;
-  border: 2px solid var(--neu-gray);
-  font-family: inherit;
-  transition: all 0.2s ease-in-out;
-  bottom: 42px;
+  /* max-width: 600px; */
 }
 
-.sedan button {
-  background: var(--neu-gray);
-  color: var(--prim-orange);
+.heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 1.6px;
+  line-height: 1.5;
+  padding: 50px 0 10px;
 }
 
-.suv button {
-  background-color: var(--neu-gray);
-  color: var(--prim-cyan);
+.paragraph {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  padding: 10px 0;
+}
+@keyframes example {
+  from {
+    transform: translateX(-300px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
-.luxury button {
-  background-color: var(--neu-gray);
-  color: var(--prim-dark-cyan);
+/* The element to apply the animation to */
+div {
+  animation-name: slideInLeft;
+  animation-timing-function: linear;
+  animation-duration: 4s;
 }
 
-button:hover {
-  background-color: transparent;
-  color: var(--neu-gray);
+.button {
+  background-color: #fff;
+  padding: 10px;
+  width: 65%;
+  max-width: 200px;
+  border-radius: 100px;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--bgcolor);
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-button:active {
-  transform: scale(0.9);
+.button:hover {
+  background-color: hsla(360, 100%, 100%, 0.8);
+  transition: 0.5s;
 }
 
-/* style footer */
+.rotate {
+  animation-name: rotate;
+  animation-timing-function: linear;
+  transform-origin: top left;
+}
+
+.footer {
+  width: 100%;
+  padding: 0 var(--main-padding) 15px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 1rem;
+}
+
+.social-icon-box {
+  /* Remember, this is an anchor tag */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: solid 1px #fff;
+  border-radius: 50%;
+  margin: 5px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.social-icon-box:hover {
+  color: hsla(360, 100%, 100%, 0.75);
+  transition: 0.5s;
+}
+
+.social-icon {
+  font-size: 2rem;
+}
 
 .attribution {
-  width: 100%;
-  margin: 0 auto;
-  position: absolute;
-  color: var(--gray);
-  bottom: 10px;
-  font-size: 0.75rem;
-  line-height: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0.5rem;
 }
 
 .attribution a {
   text-decoration: none;
-  color: var(--dark-gray);
+  /* color: hsl(228, 45%, 44%); */
+  color: hsla(360, 100%, 100%, 0.5);
+  transition: 0.5s;
 }
 
 .attribution a:hover {
-  color: var(--black);
+  color: hsla(360, 100%, 100%, 0.9);
+  transition: 0.5s;
 }
 
-/* style tablet and mobile */
-
-@media only screen and (max-width: 844px) {
-  body {
-    display: flex;
+@media screen and (max-width: 374px) {
+  .header {
+    padding: 10px;
+    /* justify-content: center; */
+  }
+  .logo-image {
     width: 100%;
-    overflow: scroll;
-    flex-wrap: wrap;
+  }
+  .main {
+    padding: 10px;
+  }
+  .heading {
+    padding: 10px 0;
+  }
+  .social-icon-bex {
+    margin: 10px 0;
+  }
+}
+
+/* Medium screen */
+@media screen and (min-width: 475px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+  .paragraph {
+    font-size: 1.1rem;
+  }
+  .button {
+    font-size: 1rem;
+  }
+}
+
+/* Large screen */
+@media (min-width: 1024px) {
+  :root {
+    --main-padding: 5%;
   }
 
-  main {
-    padding: 50px 0;
+  body {
+    background: url("images/bg-desktop.svg");
+    background-color: var(--bgcolor);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+  }
+
+  .page-container {
+    display: flex;
     flex-direction: column;
   }
 
-  article.sedan {
-    border-radius: 7px 7px 0 0;
+  /* Header */
+  .header {
+    width: 100%;
+    padding-top: 4%;
   }
 
-  article.luxury {
-    border-radius: 0 0 7px 7px;
+  .logo-image {
+    width: 20%;
+    max-width: 440px;
+  }
+  /* Main Container */
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 30px var(--main-padding);
   }
 
-  article p {
-    font-size: 0.77rem;
+  .image-container {
+    width: 55%;
+  }
+
+  .text-container {
+    align-items: flex-start;
+    text-align: left;
+    width: 40%;
+  }
+
+  .heading {
+    /* font-size: 2.5rem; */
+    font-size: 3vw;
+    padding: 0 0 5%;
+  }
+
+  .paragraph {
+    /* font-size: 1.1rem; */
+    font-size: 1.5vw;
+    padding: 2% 0;
+  }
+
+  .button {
+    text-align: center;
+    font-size: 1.5vw;
+    margin: 2% 0;
+    /* padding: 3% 12%;  */
+    /* margin: 5% 0; */
+    /* font-size: 1.2rem; */
+  }
+
+  /* Footer */
+  .footer {
+    width: 100%;
+  }
+  .social {
+    justify-content: flex-end;
+  }
+
+  .social-icon-box {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  .social-icon {
+    font-size: 1.5vw;
   }
 
   .attribution {
-    position: relative;
-    width: auto;
-    padding-bottom: 10px;
+    font-size: 1vw;
+    text-align: center;
+    /* padding: 0.5rem; */
+  }
+}
+
+/* Extra Large Screens */
+@media screen and (min-width: 1900px) {
+  /* Main Container */
+  .main {
+    justify-content: space-around;
+    padding: 30px var(--main-padding);
   }
 }
